@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D6539A4B-1020-4E7D-8ED5-F7CAB074B3EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warden", "src\Warden\Warden.csproj", "{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8} = {D6539A4B-1020-4E7D-8ED5-F7CAB074B3EF}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33128A2-CF67-4F0A-BBBC-B9D14418B1D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
