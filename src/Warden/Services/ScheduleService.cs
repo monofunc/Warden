@@ -36,6 +36,7 @@ public class ScheduleService
         return await _context.ScheduleEntries.AsNoTracking()
             .Where(x => x.Date.Date >= from.Date && x.Date.Date <= to.Date)
             .Include(x => x.User)
+            .OrderBy(x => x.Date)
             .ToListAsync();
     }
 
@@ -47,7 +48,7 @@ public class ScheduleService
 
         if (existing is not null)
         {
-            throw new ScheduleEntryAlreadyTakenException();
+            await ShiftUpAsync(entry.Date.Date);
         }
 
         entry.User = await _userService.GetUserAsync(entry.User.Id);
@@ -82,5 +83,21 @@ public class ScheduleService
         await _context.SaveChangesAsync();
 
         return entries;
+    }
+
+    private async Task ShiftUpAsync(DateTime startDate)
+    {
+        var targets = await _context.ScheduleEntries
+            .Where(x => x.Date.Date >= startDate)
+            .OrderBy(x => x.Date.Date)
+            .ToListAsync();
+
+        for (var i = 0; i < targets.Count; i++)
+        {
+            if (targets[i].Date.Date == startDate + TimeSpan.FromDays(i))
+            {
+                targets[i].Date += TimeSpan.FromDays(1);
+            }
+        }
     }
 }

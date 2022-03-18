@@ -39,6 +39,21 @@ public static class Seeder
             {
                 Date = DateTime.UtcNow.Date + TimeSpan.FromDays(2),
                 User = john
+            },
+            new()
+            {
+                Date = DateTime.UtcNow.Date + TimeSpan.FromDays(4),
+                User = alice
+            },
+            new()
+            {
+                Date = DateTime.UtcNow.Date + TimeSpan.FromDays(5),
+                User = john
+            },
+            new()
+            {
+                Date = DateTime.UtcNow.Date + TimeSpan.FromDays(7),
+                User = bob
             }
         });
 
