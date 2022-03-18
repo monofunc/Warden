@@ -14,6 +14,7 @@ public class ExceptionFilter : IExceptionFilter
             Detail = context.Exception.Message,
             Status = context.Exception switch
             {
+                ArgumentException => 400,
                 ScheduleEntryNotFoundException
                     or UserNotFoundException => 404,
                 ScheduleEntryAlreadyTakenException => 418,
