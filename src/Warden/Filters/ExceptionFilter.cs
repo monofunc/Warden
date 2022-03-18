@@ -14,13 +14,17 @@ public class ExceptionFilter : IExceptionFilter
             Detail = context.Exception.Message,
             Status = context.Exception switch
             {
-                ScheduleEntryNotFoundException => 404,
+                ScheduleEntryNotFoundException
+                    or UserNotFoundException => 404,
                 ScheduleEntryAlreadyTakenException => 418,
                 _ => 500
             }
         };
 
-        context.Result = new ObjectResult(details);
+        context.Result = new ObjectResult(details)
+        {
+            StatusCode = details.Status
+        };
 
         context.ExceptionHandled = true;
     }
